@@ -1,14 +1,15 @@
-import React from 'react';
+import {React, createContext, useState} from 'react';
 import './App.css';
 import Input from './components/input';
-import Button from './components/button';
 import darkSouls3 from './components/images/dark-souls-3.jpg'
 import eldenRing from './components/images/elden-ring.jpg'
 import sekiro from './components/images/sekiro.jpg'
 import liesOfp from './components/images/Lis-of-p.jpg'
 import theWitcher3 from './components/images/The-witcher-3.jpg'
 import Card from './components/card';
+import ReactSwitch from 'react-switch';
 
+export const ThemeContext = createContext(null)
 
 const DATA = [
   {
@@ -46,12 +47,18 @@ const DATA = [
 
 
 function App() {
-  
+  const [theme, setTheme] = useState("light")
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark": "light"))
+  }
   return (
-    <div className="App">
+    <ThemeContext.Provider value = {{theme, toggleTheme}}>
+    <div className="App" id={theme}>
       <div className='inputBox'>
-        <Input />
-        {/* <Button title="Add"/> */}
+        <Input/>
+      </div>
+      <div className='switchTheme'>
+        <ReactSwitch onChange={toggleTheme} checked={theme === "dark"}/>
       </div>
       <div className='CardItems'>
       {DATA.map(el => {
@@ -70,7 +77,7 @@ function App() {
       
       </div>
     </div>
-    
+    </ThemeContext.Provider>
 
   );
 }

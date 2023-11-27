@@ -5,7 +5,7 @@ import styles from './style.module.css'
 function Input() {
     // const [value, setValue] = useState("")
 
-    const [searchQuery, setSerchQuery] = useState("")
+    
 
     return (
         <div>
@@ -13,8 +13,7 @@ function Input() {
             <div className={styles ["inputBox"]}>
                 <input 
                     type="text"
-                    value={searchQuery}
-                    onChange={event => setSerchQuery(event.target.value)}
+            
                     placeholder="Поиск..."
                 />
             </div>

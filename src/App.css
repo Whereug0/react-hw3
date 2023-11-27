@@ -13,3 +13,22 @@
   color: white;
   gap: 40px;
 }
+
+#light {
+  background: white;
+}
+
+#rark {
+  background-color: black;
+}
+
+#light .CardItems {
+  color: black
+}
+
+.switchTheme {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
