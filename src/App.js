@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       <div className='inputBox'>
         <Input />
-        <Button title="Add"/>
+        {/* <Button title="Add"/> */}
       </div>
       <div className='CardItems'>
       {DATA.map(el => {
